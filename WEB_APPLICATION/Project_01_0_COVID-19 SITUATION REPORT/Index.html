@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <title> Covid-19 Situation reports </title>
+        <meta name="title" content="Covid-19 Situation reports"/>
+        <meta charsset= "UTF-8"/>
+        <meta http-equiv="X-UA-Copatible" content="ie=edge"/>
+        <meta name="viewpoint" content="width=device-width , initial-scale = 1"/>
+        <meta name="author" content="Keen"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Mali:wght@500&family=Raleway:ital,wght@1,100&display=swap" rel="stylesheet">  
+        <link rel="stylesheet" href="asset/css/style.css"/>
+    </head>
+    <body>
+        <div class="divIcon">
+            <div class="divBoxAB itemATEXT" onclick="refreshPAGE()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" id="refreshP"><path d="M13.5 2c-5.621 0-10.211 4.443-10.475 10h-3.025l5 6.625 5-6.625h-2.975c.257-3.351 3.06-6 6.475-6 3.584 0 6.5 2.916 6.5 6.5s-2.916 6.5-6.5 6.5c-1.863 0-3.542-.793-4.728-2.053l-2.427 3.216c1.877 1.754 4.389 2.837 7.155 2.837 5.79 0 10.5-4.71 10.5-10.5s-4.71-10.5-10.5-10.5z"/></svg>
+            </div>
+        </div>
+        <div>
+            <h1 style="font-size: 350%"> Covid-19 Situation reports </h1>
+            <h5 style="font-size: 150% ; margin-top: -2% ;"> อัพเดตข้อมูลล่าสุด : <span id="UpdateDate"></span> </h5>
+            <h5 style="font-size: 100% ; margin-top: -2% ;"> ที่มา : <a id="SourceA" href='#' target="_blank"><span id="Source"></span></a>  </h5>
+            <div class='container'>
+                <div containerA>
+                <div class="divBlock itemA" style="background-color: rgb(252, 175, 175);">
+                    <div class="itemATEXT">
+                    <h1 style="margin-top: 3% ;"> ติดเชื้อสะสม </h1>
+                    <h3 style="font-size: 350% ; margin-top: -1% ;"><span id="Confirmed"></span> คน </h3>
+                    <h3 style="margin-top: -3% ;">(+ <span id="NewConfirmed"></span> คน) </h3>
+                </div>
+                </div>
+                <div class='containerB'>
+                    <div class="divBlock itemB" style="background-color: rgb(0, 231, 123);">
+                        <div class="itemATEXT">
+                        <h1 style="margin-top: 5% ;">หายแล้ว</h1>
+                        <h1 style="margin-top: 5% ;"><span id="Recovered"></span> คน</h1>
+                    </div>
+                    </div>
+                    <div class="divBlock itemB" style="background-color: rgb(212, 233, 154);">
+                        <div class="itemATEXT">
+                        <h1 style="margin-top: 5% ;">รักษาอยู่</h1>
+                        <h1 style="margin-top: 5% ;"><span id="Hospitalized"></span> คน</h1>
+                    </div>
+                    </div>
+                    <div class="divBlock itemB" style="background-color: rgb(130, 66, 212);">
+                        <div class="itemATEXT">
+                        <h1 style="margin-top: 5% ;">เสียชีวิต</h1>
+                        <h1 style="margin-top: 5% ;"><span id="Deaths"></span> คน</h1>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+    function numberWithCommas(x) {
+            return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+        }
+        axios({
+            method:'get',
+            url: 'http://covid19.th-stat.com/api/open/today',
+            responseType: 'json'
+        }).then(function(response){
+            console.log(response.data);
+            document.getElementById("UpdateDate").innerHTML = response.data['UpdateDate'];
+            document.getElementById("Source").innerHTML = response.data['Source'];
+            document.getElementById("Confirmed").innerHTML = numberWithCommas(response.data['Confirmed']);
+            document.getElementById("NewConfirmed").innerHTML = numberWithCommas(response.data['NewConfirmed']);
+            document.getElementById("Recovered").innerHTML = numberWithCommas(response.data['Recovered']);
+            document.getElementById("Hospitalized").innerHTML = numberWithCommas(response.data['Hospitalized']);
+            document.getElementById("Deaths").innerHTML = numberWithCommas(response.data['Deaths']);
+            document.getElementById("SourceA").setAttribute('href' , response.data['Source']);
+        });
+
+        function refreshPAGE(){
+            location.reload();
+        }
+    </script>
+    </body>
+    <footer>
+    <div class="t" style="font-size: 80% ; margin-top: 5% ;">
+        <h3>Nitipat Auppakara : Author</h3>
+        <h3>2 / 11 / 2021     : Date</h3>
+        <h3> 065 590 4919     : Tel</h3>
+    </div>
+    </footer>
+</html>
