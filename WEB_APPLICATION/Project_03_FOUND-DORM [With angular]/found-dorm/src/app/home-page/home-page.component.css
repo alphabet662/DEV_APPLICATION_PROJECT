@@ -1,0 +1,41 @@
+.FTmenu {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 1%;
+}
+.FTmenuItem {
+  width: 30%;
+  border-radius: 10px;
+  padding: 0.5%;
+  color: #fff;
+  background-color: gray;
+}
+.mat-button-toggle {
+  color: #fff;
+  background-color: #c2185b;
+}
+.mat-button-toggle-checked {
+  background-color: #7b4aee;
+  color: #fff;
+}
+.result {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 1%;
+  border-radius: 10px;
+  padding: 0.5%;
+  color: #fff;
+  background-color: gray;
+  margin: 2%;
+}
+.itemResult {
+  padding: 1%;
+  width: 18%;
+}
+.itemCard {
+  max-width: 100%;
+}

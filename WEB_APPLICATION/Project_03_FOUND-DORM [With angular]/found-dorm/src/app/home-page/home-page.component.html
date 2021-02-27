@@ -1,0 +1,51 @@
+<div class="FTmenu">
+    <div class="FTmenuItem">
+        <p style="text-align: center;"> ประเภท : <br /></p>
+        <div style="text-align: center;">
+            <mat-button-toggle-group name="Catagory" Value="" [(ngModel)]="searchCategory">
+                <mat-button-toggle Value=""> ทั้งหมด </mat-button-toggle>
+                <mat-button-toggle Value="รายวัน"> รายวัน </mat-button-toggle>
+                <mat-button-toggle Value="รายเดือน"> รายเดือน </mat-button-toggle>
+            </mat-button-toggle-group>
+        </div>
+    </div>
+    <div class="FTmenuItem">
+        <p style="text-align: center;"> ประตู : <br /></p>
+        <div style="text-align: center;">
+            <mat-button-toggle-group name="Zone" Value="" [(ngModel)]="searchZone">
+                <mat-button-toggle Value=""> ทั้งหมด </mat-button-toggle>
+                <mat-button-toggle Value="ประตู 1"> 1 </mat-button-toggle>
+                <mat-button-toggle Value="ประตู 2"> 2 </mat-button-toggle>
+                <mat-button-toggle Value="ประตู 3"> 3 </mat-button-toggle>
+                <mat-button-toggle Value="ประตู 4"> 4 </mat-button-toggle>
+                <mat-button-toggle Value="ประตู 5"> 5 </mat-button-toggle>
+                <mat-button-toggle Value="ประตู 6"> 6 </mat-button-toggle>
+            </mat-button-toggle-group>
+        </div>
+    </div>
+</div>
+
+<div class="result">
+    <div class="itemResult" *ngFor="let item of dataDorm | filter: searchCategory | filter: searchZone">
+        <mat-card class="itemCard">
+            <mat-card-header>
+                <mat-card-title>
+                    {{item.dorm_name}}
+                </mat-card-title>
+                <mat-card-subtitle>
+                    {{item.price}} บาท
+                </mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="{{item.tn_path}}"/>
+            <mat-card-content>
+                <mat-chip-list>
+                    <mat-chip selected="รายเดือน"> {{item.category}} </mat-chip>
+                    <mat-chip color="warn" selected> {{item.zone}} </mat-chip>
+                </mat-chip-list>
+            </mat-card-content>
+            <mat-card-actions>
+                <div style="text-align: center;" ><button mat-button (click)="getDetail(item.dorm_id)"> รายละเอียด </button></div>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
