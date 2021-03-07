@@ -1,0 +1,88 @@
+.container {
+  margin-top: 10vh;
+  width: 100vw;
+  height: 30vh;
+  background: url("../../assets/bgc.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  overflow: hidden;
+  color: rgb(241, 140, 73);
+}
+.show {
+  background-repeat: no-repeat;
+}
+h2 {
+  color: rgb(243, 113, 26);
+}
+img {
+  margin-top: 8vh;
+  margin-left: 40vw;
+  width: 300px;
+  height: 300px;
+}
+.h1t {
+  margin-top: 2vh;
+  margin-left: 40vw;
+  font-size: 250%;
+}
+.inpBox[type="text"] {
+  width: 50vw;
+  height: 8vh;
+  margin-top: -2vw;
+  margin-left: 25vw;
+
+  border: 5px solid rgb(241, 140, 73);
+  border-radius: 30px;
+  font-size: large;
+  text-align: center;
+}
+
+.inpBox[type="text"]:focus {
+  background-color: rgb(252, 225, 207);
+}
+.btn {
+  margin-top: 2vh;
+  width: 10vw;
+  height: 5vh;
+  color: #fff;
+  border-radius: 30px;
+  background: rgb(241, 140, 73);
+  margin-left: 45vw;
+  text-align: center;
+  font-size: larger;
+  cursor: pointer;
+}
+.notFound {
+  border-radius: 20px;
+  background-color: rgb(255, 255, 255);
+  margin: 3%;
+  width: auto;
+  padding: 2%;
+  text-align: center;
+  font-size: 250%;
+  color: #252525;
+}
+.Found {
+  border-radius: 20px;
+  background-color: rgb(255, 255, 255);
+  margin: 3%;
+  width: auto;
+  padding: 2%;
+  text-align: center;
+  color: #252525;
+}
+.user {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.FoundX {
+  border-radius: 20px;
+  background-color: rgb(184, 184, 184);
+  margin: 3%;
+  width: auto;
+  padding: 2%;
+  text-align: center;
+  color: #252525;
+}

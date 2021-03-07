@@ -1,0 +1,51 @@
+###
+//Status connection database
+GET http://localhost:3000/
+
+###
+//Create User
+POST http://localhost:3000/user/ HTTP/1.1
+content-type: application/json
+
+{
+    "uid": "00002",
+    "first_name":"นิติพัฒน์",
+    "last_name":"อุปการะ",
+    "tel":"0655904919",
+    "email":"nitipata61@nu.ac.th",
+    "password":"110555"
+}
+
+###
+//Login User
+POST http://localhost:3000/login/ HTTP/1.1
+content-type: application/json
+
+{
+    "email":"nitipata61@nu.ac.th",
+    "password":"110555"
+}
+
+###
+//Update User data
+PUT http://localhost:3000/user/ HTTP/1.1
+content-type: application/json
+
+{
+    "uid": "00002",
+    "email":"nitipata61@nu.ac.th",
+    "first_name":"นิติ",
+    "last_name":"อุปการะ",
+    "tel":"0991901919",
+    "password":"110555"
+}
+###
+
+DELETE  http://localhost:3000/user/ HTTP/1.1
+content-type: application/json
+
+{
+    "uid": "00002",
+    "email":"nitipata61@nu.ac.th",
+    "password":"110555"
+}

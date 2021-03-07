@@ -4,7 +4,7 @@ const bodyparser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
-const port = 30000;
+const port = 3000;
 const host = '127.0.0.1';
 const mongoose = require('mongoose');
 
