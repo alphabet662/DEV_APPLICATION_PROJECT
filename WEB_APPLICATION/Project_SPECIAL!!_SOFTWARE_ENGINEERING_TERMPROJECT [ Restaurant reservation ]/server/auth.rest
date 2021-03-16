@@ -1,0 +1,86 @@
+###
+//Status connection database
+GET http://localhost:4000/ HTTP/1.1
+
+//USER AUTHENTICATION
+
+###
+//Renew tokens
+POST http://localhost:4000/user/token/ HTTP/1.1
+content-type: application/json
+
+{
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIwMDAwMiIsImZpcnN0X25hbWUiOiLguJnguLTguJXguLTguJ7guLHguJLguJnguYwiLCJsYXN0X25hbWUiOiLguK3guLjguJvguIHguLLguKPguLAiLCJFbWFpbCI6Im5pdGlwYXRhNjFAbnUuYWMudGgiLCJ0ZWwiOiIwNjU1OTA0OTE5IiwiaWF0IjoxNjE1MzE4ODQ4fQ.WckIzizaKed8e8Nm0WoK6HLxLBvxnZtiE64AMA0tNQQ"
+}
+
+###
+//User Login
+POST http://localhost:4000/user/login/ HTTP/1.1
+content-type: application/json
+
+{
+    "email":"nitipata61@nu.ac.th",
+    "password": "110555"
+}
+
+###
+//User Logout
+DELETE http://localhost:4000/user/logout/ HTTP/1.1
+content-type: application/json
+
+{
+    //refresh token
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIwMDAwMiIsImZpcnN0X25hbWUiOiLguJnguLTguJXguLQiLCJsYXN0X25hbWUiOiLguK3guLjguJvguIHguLLguKPguLAiLCJFbWFpbCI6Im5pdGlwYXRhNjFAbnUuYWMudGgiLCJ0ZWwiOiIwNjkxMDA0OTE5IiwiaWF0IjoxNjE1MzIxODM5fQ.LMMc_F_zoJKx8xbuqWAY-TMz-Wjtv-EmCI-H7lY18cE"
+}
+
+###
+//Create users
+POST http://localhost:4000/user/ HTTP/1.1
+content-type: application/json
+
+{
+    "uid": "00002",
+    "first_name":"นิติพัฒน์",
+    "last_name":"อุปการะ",
+    "tel":"0655904919",
+    "email":"nitipata61@nu.ac.th",
+    "password":"110555"
+}
+
+###
+//Delete users
+DELETE http://localhost:4000/user/ HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIwMDAwMiIsInRlbCI6IjA2NTU5MDQ5MTkiLCJpYXQiOjE2MTUzMTg5MDYsImV4cCI6MTYxNTMxODkyNn0.r_Sw1rxolIvp72nDmiCnKNT5hQ8g_O-9dRt-QkNrjvo
+
+###
+//Update users
+PUT http://localhost:4000/user/ HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIwMDAwMiIsImZpcnN0X25hbWUiOiLguJnguLTguJXguLQiLCJsYXN0X25hbWUiOiLguK3guLjguJvguIHguLLguKPguLAiLCJ0ZWwiOiIwOTExMDA0OTE5IiwiaWF0IjoxNjE1MzIwODc1LCJleHAiOjE2MTUzMjQ0NzV9.D8CPXpPt5EJ2rnyz7D46zNLsT7WZJb77SDW6RwxatCY
+
+{
+    "first_name":"นิติ",
+    "last_name":"อุปการะ",
+    "tel":"0691004919"
+}
+
+###
+//Create restaurant
+POST http://localhost:4000/restaurant/ HTTP/1.1
+content-type: application/json
+
+{
+    "rid": "00002",
+    "restaurant_name": "ไก่",
+    "first_name":"นิ",
+    "last_name":"อุ",
+    "address": "Faculty of Engineering",
+    "tel":"0655904919",
+    "email":"nitipata61@nu.ac.th",
+    "description":"ไม่ขาย",
+    "minperq":"1",
+    "maxperq":"6",
+    "qperday":"20",
+    "password":"110555"
+}
+
